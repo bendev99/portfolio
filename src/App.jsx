@@ -1,8 +1,8 @@
-import { BsGithub, BsTelegram, BsWhatsapp } from "react-icons/bs";
+import { BsGithub, BsWhatsapp } from "react-icons/bs";
 import { CgMail } from "react-icons/cg";
-import { FaTelegram } from "react-icons/fa";
 import { MdOpenInNew } from "react-icons/md";
 import { PiTelegramLogo } from "react-icons/pi";
+import { motion } from "framer-motion";
 
 const App = () => {
   const github = "https://github.com/bendev99";
@@ -16,67 +16,134 @@ const App = () => {
       <div className="flex flex-col w-full items-center justify-between px-20">
         <div className="flex w-full justify-between items-center">
           <div className="flex flex-col">
-            <h1 className="text-3xl font-bold text-amber-500">PORTFOLIO</h1>
-            <p className="text-2xl text-white font-black">
+            <motion.h1
+              initial={{ transform: "translateX(-100px)" }}
+              animate={{ transform: "translateX(0px)" }}
+              transition={{ type: "spring" }}
+              className="text-3xl font-bold text-cyan-500"
+            >
+              PORTFOLIO
+            </motion.h1>
+            <motion.p
+              initial={{ transform: "translateX(-150px)" }}
+              animate={{ transform: "translateX(0px)" }}
+              transition={{ type: "spring" }}
+              className="text-2xl text-cyan-600 font-bold"
+            >
               Tsahatsy Benedictin
-            </p>
+            </motion.p>
           </div>
 
           <div className="flex gap-8 mt-5">
-            <div className="flex flex-col gap-2 items-center">
-              <div className="ml-6 flex space-x-1 items-center text-gray-900 hover:text-gray-500">
-                <p className="">Github</p>
-                <p className="flex bg-cyan-950 w-7 h-7 rounded-full text-white cursor-pointer items-center justify-center">
-                  <a href={github}>
-                    <BsGithub />
-                  </a>
+            <div className="flex flex-col gap-2 items-center justify-center">
+              {/* Icon github */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ all: "easeOut", duration: 0.5 }}
+                className="flex items-center my-auto gap-2"
+              >
+                <a
+                  href={github}
+                  className="peer order-2 text-2xl cursor-pointer text-cyan-800"
+                >
+                  <BsGithub size={28} />
+                </a>
+                <p className="text-gray-600 -ml-2 order-1 opacity-0 transition-opacity duration-300 peer-hover:opacity-100 pointer-events-none">
+                  Github
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="flex space-x-1 items-center text-gray-900 hover:text-gray-500">
-                <p className="">Whatsapp</p>
-                <p className="flex bg-cyan-950 w-7 h-7 rounded-full text-white cursor-pointer items-center justify-center">
-                  <a href={`https://wa.me/${whatsapp}`}>
-                    <BsWhatsapp />
-                  </a>
+              {/* Icon whatsApp */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ all: "easeOut", duration: 0.5 }}
+                className="flex items-center gap-2"
+              >
+                <a
+                  href={`http://wa.me/${whatsapp}`}
+                  className="peer order-2 text-2xl cursor-pointer text-cyan-800"
+                >
+                  <BsWhatsapp size={28} />
+                </a>
+                <p className="text-gray-600 -ml-8 order-1 opacity-0 transition-opacity duration-300 peer-hover:opacity-100 pointer-events-none">
+                  WhatsApp
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="flex space-x-1 items-center text-gray-900 hover:text-gray-500">
-                <p className="ml-8">Gmail</p>
-                <p className="flex bg-cyan-950 w-7 h-7 rounded-full text-white cursor-pointer items-center justify-center">
-                  <a href={`mailto:${email}`}>
-                    <CgMail />
-                  </a>
+              {/* Icon Gmail */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ all: "easeOut", duration: 0.5 }}
+                className="flex items-center gap-2"
+              >
+                <a
+                  href={`mailto:${email}`}
+                  className="peer order-2 text-2xl cursor-pointer text-cyan-800 "
+                >
+                  <CgMail size={32} />
+                </a>
+                <p className="text-gray-600 order-1 opacity-0 transition-opacity duration-300 peer-hover:opacity-100 pointer-events-none">
+                  Gmail
                 </p>
-              </div>
+              </motion.div>
             </div>
 
-            <div className="flex h-28 w-28 items-center justify-center rounded-full shadow-sm shadow-cyan-500">
-              <div className="flex h-25 w-25 items-center justify-center">
+            <div className="relative">
+              <div className="relative h-28 w-28">
                 <img
                   src="/ben.jpg"
                   alt="Photo de profile"
-                  className="rounded-full"
+                  className="h-28 w-28 rounded-full object-cover"
                 />
               </div>
+
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, ease: "linear", duration: 5 }}
+                className="w-28 h-28 pointer-events-none absolute inset-0 rounded-full shadow-md shadow-cyan-500"
+              ></motion.div>
             </div>
           </div>
         </div>
 
-        <h1 className="text-xl text-white mb-5">Developpeur</h1>
+        <motion.h1
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ all: "easeOut", duration: 0.5 }}
+          className="text-xl text-cyan-500 font-bold mb-5"
+        >
+          DEVELOPPEUR
+        </motion.h1>
       </div>
 
-      <div className="w-[50%] h-0.5 bg-gray-700/30 shadow-2xl shadow-blue-300 mb-2"></div>
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ all: "easeOut", duration: 0.5 }}
+        className="w-[50%] h-0.5 bg-gray-700/30 shadow-2xl shadow-blue-300 mb-2"
+      ></motion.div>
 
       {/* BODY */}
       {/* Section competences */}
       <div className="flex flex-col w-full items-center">
-        <h1 className="w-[30%] text-3xl font-bold text-white text-center m-5 shadow shadow-blue-100 rounded-2xl p-2">
+        <motion.h1
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ all: "easeOut", duration: 0.5 }}
+          className="w-[30%] text-3xl font-bold text-white text-center m-5 shadow shadow-blue-100 rounded-2xl p-2"
+        >
           COMPETENCES
-        </h1>
+        </motion.h1>
 
-        <div className="w-full px-20">
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ all: "easeOut", duration: 0.5 }}
+          className="w-full px-20"
+        >
           <div className="flex flex-col gap-5 shadow shadow-blue-100 rounded-2xl px-12">
             {/* WEB */}
             <div className="flex justify-between pt-5 items-start m-2 ">
@@ -176,11 +243,16 @@ const App = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Section projets */}
-      <div className="flex flex-col w-full items-center">
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ all: "easeOut", duration: 0.5 }}
+        className="flex flex-col w-full items-center"
+      >
         <h1 className="w-[20%] text-3xl font-bold text-white text-center m-5 mt-16 shadow shadow-blue-100 rounded-2xl p-2">
           PROJETS
         </h1>
@@ -192,7 +264,7 @@ const App = () => {
               <div className="flex gap-5 items-center justify-between rounded-2xl p-2 w-full">
                 <div className="flex flex-col items-center">
                   <img src="/logo.svg" alt="image de fond" className="h-24" />
-                  <h1 className="text-white font-bold">Chat-App</h1>
+                  <h1 className="text-white font-bold">Yi-Chat</h1>
                 </div>
 
                 <div>
@@ -220,21 +292,25 @@ const App = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* FOOTER */}
-      <div className="w-full m-5 mt-16">
-        <div className="flex flex-col mx-20 p-5 shadow shadow-blue-100 rounded-2xl items-center">
-          <div className="flex flow-row shadow shadow-blue-100 p-2 rounded-2xl w-[20%] justify-center mb-6">
-            <h1 className="text-center text-white text-2xl font-bold">
-              CONTACT
-            </h1>
-          </div>
 
+      <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ all: "easeOut", duration: 0.5 }}
+        className="w-full mb-5 mt-16 items-center justify-center"
+      >
+        <div className="flex shadow shadow-blue-100 p-2  rounded-2xl w-[20%] justify-center mx-auto mb-6">
+          <h1 className="text-center text-white text-2xl font-bold">CONTACT</h1>
+        </div>
+
+        <div className="flex flex-col mx-20 p-5 shadow shadow-blue-100 rounded-2xl items-center">
           <div className="w-full">
             <div className="flex items-center justify-around gap-5 text-white">
               <div className="flex flex-col gap-2 text-center justify-center">
-                <p>Téléphone</p>
+                <p className="font-bold">Téléphone</p>
                 <div className="flex flex-col">
                   <p>033 17 250 84</p>
                   <p>034 37 865 70</p>
@@ -244,7 +320,7 @@ const App = () => {
               <div className="w-0.5 h-16 bg-gray-700/30 shadow-2xl shadow-blue-300 mb-2"></div>
 
               <div className="flex flex-col gap-2 text-center justify-center">
-                <p>Réseau sociaux</p>
+                <p className="font-bold">Réseau sociaux</p>
                 <div className="flex flex-col gap-2">
                   <div className="flex gap-2 items-center">
                     <a
@@ -271,7 +347,7 @@ const App = () => {
               <div className="w-0.5 h-16 bg-gray-700/30 shadow-2xl shadow-blue-300 mb-2"></div>
 
               <div className="flex flex-col gap-2 text-center justify-center">
-                <p>Email</p>
+                <p className="font-bold">Email</p>
                 <div className="flex flex-col">
                   <a href={`mailto:${email}`}>
                     <p>benbenedictin@gmail.com</p>
@@ -281,7 +357,7 @@ const App = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
