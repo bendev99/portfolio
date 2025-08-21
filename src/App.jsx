@@ -1,4 +1,15 @@
+import { BsGithub, BsTelegram, BsWhatsapp } from "react-icons/bs";
+import { CgMail } from "react-icons/cg";
+import { FaTelegram } from "react-icons/fa";
+import { MdOpenInNew } from "react-icons/md";
+import { PiTelegramLogo } from "react-icons/pi";
+
 const App = () => {
+  const github = "https://github.com/bendev99";
+  const whatsapp = +261343786570;
+  const telegram = +261343786570;
+  const email = "benbenedictin@gmail.com";
+
   return (
     <div className="flex flex-col min-h-screen max-w-screen items-center my-6 py-5 mx-36 bg-gray-900 rounded-2xl shadow shadow-blue-100">
       {/* HEADER */}
@@ -15,22 +26,28 @@ const App = () => {
             <div className="flex flex-col gap-2 items-center">
               <div className="ml-6 flex space-x-1 items-center text-gray-900 hover:text-gray-500">
                 <p className="">Github</p>
-                <p className="flex bg-cyan-950 w-8 h-8 rounded-full text-white cursor-pointer items-center justify-center">
-                  G
+                <p className="flex bg-cyan-950 w-7 h-7 rounded-full text-white cursor-pointer items-center justify-center">
+                  <a href={github}>
+                    <BsGithub />
+                  </a>
                 </p>
               </div>
 
               <div className="flex space-x-1 items-center text-gray-900 hover:text-gray-500">
                 <p className="">Whatsapp</p>
-                <p className="flex bg-cyan-950 w-8 h-8 rounded-full text-white cursor-pointer items-center justify-center">
-                  W
+                <p className="flex bg-cyan-950 w-7 h-7 rounded-full text-white cursor-pointer items-center justify-center">
+                  <a href={`https://wa.me/${whatsapp}`}>
+                    <BsWhatsapp />
+                  </a>
                 </p>
               </div>
 
               <div className="flex space-x-1 items-center text-gray-900 hover:text-gray-500">
                 <p className="ml-8">Gmail</p>
-                <p className="flex bg-cyan-950 w-8 h-8 rounded-full text-white cursor-pointer items-center justify-center">
-                  M
+                <p className="flex bg-cyan-950 w-7 h-7 rounded-full text-white cursor-pointer items-center justify-center">
+                  <a href={`mailto:${email}`}>
+                    <CgMail />
+                  </a>
                 </p>
               </div>
             </div>
@@ -189,9 +206,13 @@ const App = () => {
                   </p>
                 </div>
 
-                <div className="w-20 h-20 rounded-full hover:scale-101 cursor-pointer items-center text-center">
-                  <a href="www.yi-chat.onrender.com">
-                    <img src="/logo.svg" alt="" />
+                <div className="rounded-full hover:scale-101 cursor-pointer items-center text-center">
+                  <a
+                    href="https://yi-chat.onrender.com/"
+                    className="flex flex-col items-center justify-center"
+                  >
+                    <MdOpenInNew size={35} color="white" />
+                    {/* <img src="/logo.svg" alt="" /> */}
                     <p className="text-white text-sm">Navigué</p>
                   </a>
                 </div>
@@ -226,17 +247,23 @@ const App = () => {
                 <p>Réseau sociaux</p>
                 <div className="flex flex-col gap-2">
                   <div className="flex gap-2 items-center">
-                    <div className=" flex w-5 h-5 bg-green-900 rounded-full items-center justify-center">
-                      w
-                    </div>
-                    <p>034 37 865 70</p>
+                    <a
+                      href={`http://wa.me/${whatsapp}`}
+                      className="flex items-center gap-2"
+                    >
+                      <BsWhatsapp color="green" />
+                      <p>034 37 865 70</p>
+                    </a>
                   </div>
 
                   <div className="flex gap-2 items-center">
-                    <div className=" flex w-5 h-5 bg-blue-500 rounded-full items-center justify-center">
-                      T
-                    </div>
-                    <p>034 37 865 70</p>
+                    <a
+                      href={`http://t.me/${telegram}`}
+                      className="flex items-center gap-2"
+                    >
+                      <PiTelegramLogo color="cyan" />
+                      <p>034 37 865 70</p>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -246,7 +273,9 @@ const App = () => {
               <div className="flex flex-col gap-2 text-center justify-center">
                 <p>Email</p>
                 <div className="flex flex-col">
-                  <p>benbenedictin@gmail.com</p>
+                  <a href={`mailto:${email}`}>
+                    <p>benbenedictin@gmail.com</p>
+                  </a>
                 </div>
               </div>
             </div>
